@@ -21,7 +21,7 @@ df_prev = pd.read_csv("data/previsao_diaria.csv")
 df_mun = pd.read_csv("config/municipios.csv", sep="|")
 
 # Corrige precipitação
-df_prev["tp"] = df_prev["tp"] / 1000  # converte para mm
+df_prev["tp"] = df_prev["tp"] / 100  # converte para mm
 
 # Junta coordenadas
 df = df_prev.merge(df_mun, on=["municipio", "uf"], how="left")
@@ -170,3 +170,4 @@ col_dl2.download_button(
     file_name="previsao_completa.csv",
     mime="text/csv"
 )
+
