@@ -12,7 +12,7 @@ import sys
 # ==============================
 # CONFIGURAÇÕES BÁSICAS
 # ==============================
-RUN_DATE = "20251104"         # data do ciclo (ex.: hoje)
+RUN_DATE = "20251210"         # data do ciclo (ex.: hoje)
 HOUR = "00"                   # ciclo 00Z
 PREFIX = f"gefs.{RUN_DATE}/{HOUR}/atmos/pgrb2ap5"
 MUNICIPIOS_CSV = "config/municipios.csv"  # lat, lon, nome, uf
@@ -134,7 +134,7 @@ def gerar_boletim_diario():
 
     # Conversões de unidade
     df_diario["t2m"] = df_diario["t2m"] - 273.15  # K → °C
-    df_diario["tp"] = df_diario["tp"] / 1000      # m → mm
+    #df_diario["tp"] = df_diario["tp"] / 1000      # m → mm
 
     # Salva resultado
     df_diario.to_csv("data_processed/previsao_diaria.csv", index=False)

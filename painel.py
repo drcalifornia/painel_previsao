@@ -21,7 +21,7 @@ df_prev = pd.read_csv("data/previsao_diaria.csv")
 df_mun = pd.read_csv("config/municipios.csv", sep="|")
 
 # Corrige precipitação
-df_prev["tp"] = df_prev["tp"] / 1000  # converte para mm
+df_prev["tp"] = df_prev["tp"]
 
 # Junta coordenadas
 df = df_prev.merge(df_mun, on=["municipio", "uf"], how="left")
